@@ -1,0 +1,117 @@
+<style>
+.hw-flip-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hw-flip-box {
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.hw-flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.hw-flip-box:hover .hw-flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.hw-flip-box-front, .hw-flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hw-flip-box-front, .hw-flip-box-back {
+  transition: opacity 0.6s, visibility 0.6s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.hw-flip-box:hover .hw-flip-box-front {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hw-flip-box:hover .hw-flip-box-back {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hw-flip-box-front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 18, 18, 0.4);
+  z-index: 1;
+}
+
+.hw-flip-box-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  backface-visibility: hidden !important;
+}
+
+.hw-flip-box-front h3 {
+  color: #fff;
+  z-index: 1;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  backface-visibility: hidden !important;
+}
+
+.hw-flip-box-back {
+  color: #084609;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden !important;
+  display: flex;
+}
+
+.hw-flip-box-back p {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.hw-custom-button {
+    text-decoration: underline;
+}
+</style>
+
+
+
+<div class="hw-flip-box-container">
+    <div class="hw-flip-box">
+      <div class="hw-flip-box-inner">
+        <div class="hw-flip-box-front" style="background-image: url('https://images.squarespace-cdn.com/content/v1/5911153a414fb53fc4837ec9/4de67ce2-f06b-422b-bac1-b18cc5ddd892/pexels-ylanite-koppens-2820144.jpg?format=2500w');">
+          <h3>Local & Organic Fruits and Vegetables</h3>
+        </div>
+        <div class="hw-flip-box-back">
+            <p> 
+                Enjoy the farm fresh bounty of seasonal local produce, and a year-round selection of thoughtfully sourced organic fruits and vegetables.
+            </p>
+            <a href="https://www.greenridgeacres.com/fruits-and-vegetables" class="hw-custom-button">Learn More</a>
+        </div>   
+      </div>
+    </div>
+  </div>
+  
